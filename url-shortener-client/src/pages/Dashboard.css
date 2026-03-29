@@ -1,0 +1,19 @@
+.dashboard {
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.dashboard__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.dashboard__subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}

@@ -1,0 +1,189 @@
+.analytics {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.analytics__header {
+  margin-bottom: 16px;
+}
+
+.analytics__title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.analytics__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+
+.analytics__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.analytics__live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.analytics__stats {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.analytics__stat {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  min-width: 110px;
+}
+
+.analytics__stat-label {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.analytics__stat-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.analytics__table-wrap {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.analytics__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.analytics__table th {
+  padding: 9px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.analytics__table td {
+  padding: 9px 14px;
+  font-size: 13px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.analytics__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.analytics__table tbody tr:hover td {
+  background: var(--bg-subtle);
+}
+
+.analytics__table td a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.analytics__table td a:hover {
+  color: var(--text);
+}
+
+.analytics__short-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.analytics__short-link:hover {
+  text-decoration: underline;
+}
+
+.analytics__actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Both buttons share the same base style */
+.analytics__copy-btn,
+.analytics__delete-btn {
+  padding: 4px 10px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-width: 52px;
+  text-align: center;
+}
+
+/* Copy hover + active */
+.analytics__copy-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.analytics__copy-btn--copied {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+/* Delete hover + active */
+.analytics__delete-btn:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.analytics__delete-btn--deleted {
+  border-color: var(--danger);
+  color: var(--danger);
+  cursor: default;
+}
+
+.analytics__empty {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}

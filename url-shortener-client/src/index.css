@@ -1,0 +1,14 @@
+body.light {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* Optional: smooth transition */
+body {
+  transition: all 0.3s ease;
+}

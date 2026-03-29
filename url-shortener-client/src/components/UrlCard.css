@@ -1,0 +1,97 @@
+.url-card {
+  margin-top: 16px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.url-card__row {
+  margin-bottom: 12px;
+}
+
+.url-card__label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+.url-card__value {
+  font-size: 14px;
+  color: var(--text);
+  word-break: break-all;
+}
+
+.url-card__value a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.url-card__value a:hover {
+  text-decoration: underline;
+}
+
+.url-card__divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+.url-card__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.url-card__copy-btn {
+  width: 100%;
+  padding: 9px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+}
+
+.url-card__copy-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.url-card__copy-btn--copied {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.url-card__qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.url-card__qr-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.url-card__qr {
+  background: #fff;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: inline-block;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}

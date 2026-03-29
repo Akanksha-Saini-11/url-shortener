@@ -1,0 +1,16 @@
+/* App-level layout styles */
+/* Most global styles live in styles/global.css */
+/* This file is kept for any App-specific overrides */
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-content {
+  flex: 1;
+}

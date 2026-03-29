@@ -1,0 +1,105 @@
+.url-form {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.url-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.url-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.url-form__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.url-form__label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.url-form__optional {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.url-form__input {
+  width: 100%;
+  padding: 9px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.url-form__input:focus {
+  border-color: var(--accent);
+}
+
+.url-form__input::placeholder {
+  color: var(--text-muted);
+}
+
+.url-form__input--error {
+  border-color: var(--danger);
+}
+
+.url-form__input--error:focus {
+  border-color: var(--danger);
+}
+
+.url-form__input--date {
+  color: var(--text);
+  cursor: pointer;
+}
+
+.url-form__input--date::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.url-form__error {
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--danger);
+}
+
+.url-form__submit {
+  width: 100%;
+  padding: 10px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.url-form__submit:hover {
+  background: var(--accent-hover);
+}
+
+.url-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
