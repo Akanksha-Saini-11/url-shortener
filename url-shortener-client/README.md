@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# ShortLink — URL Shortener
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack URL shortening service built with the MERN stack. Create short links, track clicks, and manage your links through a clean analytics dashboard.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **URL Shortening** — Generate short links instantly with custom aliases
+- **Link Expiry** — Set an expiry date on any link
+- **QR Code** — Auto-generated QR code for every short link
+- **Click Analytics** — Real-time dashboard tracking clicks per link
+- **Delete Links** — Remove links you no longer need
+- **JWT Authentication** — Secure login and registration
+- **Light / Dark Theme** — Toggle between themes, preference saved locally
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Frontend** — React.js, CSS  
+**Backend** — Node.js, Express.js  
+**Database** — MongoDB (Mongoose)  
+**Auth** — JSON Web Tokens (JWT)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+```
+url-shortner/
+├── url-shortener-server/
+│   ├── config/        # Database connection
+│   ├── controllers/   # Route logic
+│   ├── middleware/    # JWT auth middleware
+│   ├── models/        # Mongoose schemas
+│   ├── routes/        # Express routes
+│   ├── utils/         # Short ID generator
+│   └── server.js
+└── url-shortener-client/
+    └── src/
+        ├── components/  # Navbar, UrlForm, UrlCard, UrlList
+        ├── context/     # Theme context
+        ├── pages/       # Dashboard, Analytics, Login, Register
+        ├── services/    # Axios API calls
+        └── utils/       # Auth token helpers
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
+- Node.js
+- MongoDB Atlas account
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+cd url-shortener-server
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Create a `.env` file in the `url-shortener-server/` folder:
 
-### `npm run eject`
+```
+MONGO_URI=your_mongodb_connection_string
+PORT=5000
+JWT_SECRET=your_jwt_secret
+BASE_URL=http://localhost:5000
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Frontend Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+cd url-shortener-client
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a `.env` file in the `url-shortener-client/` folder:
 
-## Learn More
+```
+REACT_APP_API_URL=http://localhost:5000
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+App runs at `http://localhost:3000`
 
-### Code Splitting
+## Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Variable | Location | Description |
+|---|---|---|
+| `MONGO_URI` | url-shortener-server | MongoDB connection string |
+| `JWT_SECRET` | url-shortener-server | Secret key for JWT signing |
+| `BASE_URL` | url-shortener-server | Backend base URL |
+| `REACT_APP_API_URL` | url-shortener-client | Backend API URL |
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT
