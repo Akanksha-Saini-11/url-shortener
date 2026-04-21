@@ -7,6 +7,7 @@ const Login = ({ setPage }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ text: '', type: '' });
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,8 +17,9 @@ const Login = ({ setPage }) => {
       setToken(res.data.token);
       setPage('dashboard');
     } catch (err) {
-      alert('Invalid credentials');
-    } finally {
+  const msg = err.response?.data || 'Invalid email or password.';
+  setMessage({ text: msg, type: 'error' });
+} finally {
       setLoading(false);
     }
   };
@@ -52,6 +54,11 @@ const Login = ({ setPage }) => {
               required
             />
           </div>
+          {message.text && (
+  <div className={`auth-message auth-message--${message.type}`}>
+    {message.text}
+  </div>
+)}
 
           <button className="auth-form__submit" type="submit" disabled={loading}>
             {loading ? 'Signing in...' : 'Sign in'}

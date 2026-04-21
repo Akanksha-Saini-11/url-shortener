@@ -1,3 +1,4 @@
+/*login.css*/
 .auth-page {
   min-height: 100vh;
   display: flex;
@@ -121,4 +122,22 @@
 
 .auth-card__footer button:hover {
   text-decoration: underline;
+  .auth-message {
+  padding: 9px 12px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.auth-message--error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.auth-message--success {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
 }

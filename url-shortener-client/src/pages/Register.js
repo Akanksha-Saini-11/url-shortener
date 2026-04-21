@@ -7,17 +7,19 @@ const Register = ({ setPage }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ text: '', type: '' });
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       await registerUser({ name, email, password });
-      alert('Registered successfully!');
-      setPage('login');
+      setMessage({ text: 'Account created! Redirecting...', type: 'success' });
+      setTimeout(() => setPage('login'), 1500);
     } catch (err) {
-      alert('Error registering. Try again.');
-    } finally {
+  const msg = err.response?.data || 'Registration failed. Try again.';
+  setMessage({ text: msg, type: 'error' });
+} finally {
       setLoading(false);
     }
   };
@@ -63,6 +65,12 @@ const Register = ({ setPage }) => {
               required
             />
           </div>
+
+          {message.text && (
+            <div className={`auth-message auth-message--${message.type}`}>
+              {message.text}
+            </div>
+          )}
 
           <button className="auth-form__submit" type="submit" disabled={loading}>
             {loading ? 'Creating account...' : 'Create account'}
