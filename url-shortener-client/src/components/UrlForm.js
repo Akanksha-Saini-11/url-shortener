@@ -45,7 +45,7 @@ const UrlForm = ({ onAdd }) => {
 
     try {
       const res = await shortenUrl({ longUrl, customAlias, expiryDate: expiryDate || null });
-      onAdd({ longUrl, shortUrl: `https://url-shortener-server-ox6s.onrender.com/${res.data.shortUrl.split('/').pop()}` });
+     onAdd({ longUrl, shortUrl: res.data.shortUrl });
       setLongUrl('');
       setCustomAlias('');
       setExpiryDate('');
