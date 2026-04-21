@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { getToken } from '../utils/auth';
 
-const API = axios.create({ baseURL: process.env.REACT_APP_API_URL });
-
+const API = axios.create({ baseURL: 'https://s-l.onrender.com' });
 API.interceptors.request.use((req) => {
   const token = getToken();
   if (token) req.headers.Authorization = `Bearer ${token}`;
