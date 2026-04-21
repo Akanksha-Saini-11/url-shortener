@@ -10,7 +10,14 @@ const UrlCard = ({ url }) => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
+ const handleDownloadQR = () => {
+  const canvas = document.querySelector('.url-card__qr canvas');
+  const dataUrl = canvas.toDataURL('image/png');
+  const a = document.createElement('a');
+  a.href = dataUrl;
+  a.download = 'qrcode.png';
+  a.click();
+};
   return (
     <div className="url-card">
       <div className="url-card__row">
@@ -40,6 +47,9 @@ const UrlCard = ({ url }) => {
           <div className="url-card__qr">
             <QRCodeCanvas value={url.shortUrl} size={140} />
           </div>
+          <button className="url-card__copy-btn" onClick={handleDownloadQR}>
+  Download QR Code
+</button>
         </div>
       </div>
     </div>
