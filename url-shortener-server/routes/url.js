@@ -8,9 +8,9 @@ const {
   deleteUrl,
 } = require('../controllers/urlController');
 
-const auth = require('../middleware/authMiddleware');
+const auth = require('../middleware/authMiddleware'); 
 
-// Protected
+// Protectedso 
 router.post('/shorten', auth, createShortUrl);
 router.get('/all', auth, getAllUrls);
 router.delete('/delete/:id', auth, deleteUrl);

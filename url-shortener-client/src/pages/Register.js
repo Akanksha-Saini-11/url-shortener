@@ -33,6 +33,7 @@ const Register = ({ setPage }) => {
         <p className="auth-card__subtitle">Start shortening your links for free</p>
 
         <form className="auth-form" onSubmit={handleRegister}>
+          
           <div>
             <label className="auth-form__label">Name</label>
             <input

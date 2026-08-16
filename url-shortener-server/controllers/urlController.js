@@ -5,6 +5,48 @@ require("dotenv").config();
 const BASE_URL = process.env.BASE_URL;
 
 // CREATE SHORT URL
+// exports.createShortUrl = async (req, res) => {
+//   const { longUrl, customAlias, expiryDate } = req.body;
+
+//   try {
+//     if (!longUrl) {
+//       return res.status(400).json("Long URL required");
+//     }
+
+//     let shortId;
+
+//     if (customAlias && customAlias.trim() !== "") {
+//       const existing = await Url.findOne({ shortId: customAlias });
+//       if (existing) {
+//         return res.status(400).json("Alias already taken");
+//       }
+//       shortId = customAlias;
+//     } else {
+//       let isUnique = false;
+//       while (!isUnique) {
+//         shortId = generateShortId();
+//         const existing = await Url.findOne({ shortId });
+//         if (!existing) isUnique = true;
+//       }
+//     }
+
+//     const newUrl = new Url({
+//       longUrl,
+//       shortId,
+//       customAlias: customAlias || null,
+//       expiryDate: expiryDate || null,
+//       userId: req.user ? req.user.id : null,
+//     });
+
+//     await newUrl.save();
+
+//     return res.json({ shortUrl: `${BASE_URL}/${shortId}` });
+
+//   } catch (err) {
+//     console.error("ERROR:", err);
+//     res.status(500).json("Server error");
+//   }
+// };
 exports.createShortUrl = async (req, res) => {
   const { longUrl, customAlias, expiryDate } = req.body;
 
@@ -16,35 +58,49 @@ exports.createShortUrl = async (req, res) => {
     let shortId;
 
     if (customAlias && customAlias.trim() !== "") {
-      const existing = await Url.findOne({ shortId: customAlias });
+      const alias = customAlias.trim();
+
+      const existing = await Url.findOne({ shortId: alias });
+
       if (existing) {
         return res.status(400).json("Alias already taken");
       }
-      shortId = customAlias;
+
+      shortId = alias;
     } else {
       let isUnique = false;
+
       while (!isUnique) {
         shortId = generateShortId();
+
         const existing = await Url.findOne({ shortId });
-        if (!existing) isUnique = true;
+
+        if (!existing) {
+          isUnique = true;
+        }
       }
     }
 
     const newUrl = new Url({
       longUrl,
       shortId,
-      customAlias: customAlias || null,
       expiryDate: expiryDate || null,
       userId: req.user ? req.user.id : null,
     });
 
+    if (customAlias && customAlias.trim() !== "") {
+      newUrl.customAlias = customAlias.trim();
+    }
+
     await newUrl.save();
 
-    return res.json({ shortUrl: `${BASE_URL}/${shortId}` });
+    return res.json({
+      shortUrl: `${BASE_URL}/${shortId}`,
+    });
 
   } catch (err) {
     console.error("ERROR:", err);
-    res.status(500).json("Server error");
+    return res.status(500).json("Server error");
   }
 };
 
